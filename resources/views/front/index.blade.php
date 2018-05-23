@@ -1,7 +1,7 @@
 @extends("layouts.front")
 
 @section("css") 
-	<link rel="stylesheet" href="{{ asset("/css/main.css") }}?{{ date("YmdHis") }}">
+	<link rel="stylesheet" href="{{ asset('/css/main.css') }}?{{ date("YmdHis") }}">
 @stop
 
 @section("content")
@@ -22,7 +22,7 @@
         </div>
 	</section>
 
-	<section class="proyecto">
+	<section class="container-fluid proyecto">
 		<div class="row">
 			<div class="content_proyecto">
 				<div class="blanco1"></div>
@@ -43,11 +43,11 @@
 		</div>
 	</section>
 
-	<section class="ubicacion">
+	<section class="container-fluid ubicacion">
 		<div class="row justify-content-center">
-			<div class="col-md-3">
+			<div class="col-xl-3 col-md-5 col-lg-4 content_text">
 				<h2>Ubicación.</h2>
-				<div>
+				<div class="texto">
 					<p>
 						Cerca de Downtown Reforma se encuentran no sólo monumentos icónicos de la capital de México, sino diversos edificios de los principales grupos financieros del país y América Latina.
 					</p>
@@ -70,21 +70,43 @@
 					<li>Un cajón de estacionamiento por cada 30 m2.</li>
 				</ul>
 			</div>
-			<div class="col-md-3">
-				ss
+			<div class="col-xl-4 col-md-6 col-lg-5">
+				<div class="content_fotos">
+					<div class="item"><img src="{{ asset('/images/ubicacion1.png') }}" alt=""></div>
+					<div class="item"><img src="{{ asset('/images/ubicacion2.png') }}" alt=""></div>
+					<div class="item"><img src="{{ asset('/images/ubicacion3.png') }}" alt=""></div>
+				</div>
 			</div>
 		</div>
 	</section>
 
 	<section class="galeria">
-		<div class="row">
-			<div class="col"></div>
+		<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+				  <img class="d-block w-100" src="{{ asset('/images/galeria1.png') }}" alt="First slide">
+				</div>
+				<div class="carousel-item">
+				  <img class="d-block w-100" src="{{ asset('/images/galeria1.png') }}" alt="Second slide">
+				</div>
+				<div class="carousel-item">
+				  <img class="d-block w-100" src="{{ asset('/images/galeria1.png') }}" alt="Third slide">
+				</div>
+			</div>
+			<a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
 		</div>
 	</section>
 
-	<section class="calidad">
-		<div class="row" style="margin-left: initial !important; margin-right: initial !important;">
-	        <div class="col-sm-6 offset-sm-3">
+	<section class="container-fluid calidad">
+		<div class="row justify-content-center">
+	        <div class="col-md-8">
 	        	<h2>Calidad y seguridad.</h2>
 	        	<ul>
 	        		<li>Sistema de control de acceso peatonal y vehicular, un solo acceso con apertura a dos salidas diferentes.</li>
@@ -98,37 +120,37 @@
 	</section>
 
 	<section class="contacto">
-		<div class="row" style="margin-left: initial !important; margin-right: initial !important;">
-	        <div class="col-sm-6"></div>
-	        <div class="col-sm-6">
-	        	<h2>Contacto.</h2>
-	        	<div class="content_items">
-	        		<div class="item">
-	        			<div class="icon-location"></div>
-        				<a href="#">
-        					Paseo de la Reforma #95, Colonia Tabacalera, 06030 Ciudad de México.
-        				</a>
-	        		</div>
-	        		<div class="item">
-	        			<div class="icon-tel"></div>
-        				<a href="#">
-        					Tel. 47 47 47 10
-        				</a>
-	        		</div>
-	        		<div class="item">
-	        			<div class="icon-email"></div>
-        				<a href="#">
-        					belen.garcia@idu.mx 
-        				</a>
-	        		</div>
-	        	</div>
-	        </div>
-	    </div>
+        <div class="mapa" id="map"></div>
+        <div class="content_contacto">
+	    	<h2>Contacto.</h2>
+	    	<div class="content_items">
+	    		<div class="item">
+	    			<i class="fas fa-map-marker"></i>
+					<a href="#">
+						Paseo de la Reforma #95, 
+						<br>
+						Colonia Tabacalera, 06030 Ciudad de México.
+					</a>
+	    		</div>
+	    		<div class="item">
+	    			<i class="fas fa-phone"></i>
+					<a href="#">
+						Tel. 47 47 47 10
+					</a>
+	    		</div>
+	    		<div class="item">
+	    			<i class="fas fa-envelope"></i>
+					<a href="#">
+						belen.garcia@idu.mx 
+					</a>
+	    		</div>
+	    	</div>
+        </div>
 	</section>
 
-	<section class="interesa">
-		<div class="row justify-content-center" style="margin-left: initial !important; margin-right: initial !important;">
-	        <div class="col-md-3">
+	<section class="container-fluid interesa">
+		<div class="row justify-content-center">
+	        <div class="col-sm-8 col-md-6 col-lg-5">
 	        	<h2>Me interesa.</h2>
 	        	<p>
 	        		Si estás interesado en alguno de nuestros departamentos, déjanos tus datos y nos pondremos en contacto contigo
@@ -150,6 +172,8 @@
 						<label for="selectEnteraste">¿Cómo te enteraste de nosotros?</label>
 					 	<select class="form-control" id="selectEnteraste">
 				      		<option>Elije una opción</option>
+				      		<option>Facebook</option>
+				      		<option>Internet</option>
 					    </select>
 					</div>
 					<button type="submit" class="btn btn-primary">Enviar</button>
@@ -157,4 +181,8 @@
 	        </div>
 	    </div>
 	</section>
+@stop
+
+@section("js") 
+	<script src="{{ asset('/js/main.js') }}?{{ date('YmdHis') }}"></script>
 @stop

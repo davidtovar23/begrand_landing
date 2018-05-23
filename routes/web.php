@@ -12,3 +12,9 @@
 */
 
 Route::get('/', "IndexController@index");
+
+
+Route::post('/register', [
+	'uses' => 'RegisterController@store',
+	'as' => 'register.store',
+]);
